@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status="OFF"，可以去掉，它的含义为是否记录log4j2本身的event信息，默认是OFF -->
+<configuration status="OFF">
+    <!-- 定义下面的引用名 -->
+    <Properties>
+        <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n</property>
+
+        <property name="output_log_level">info</property><!-- 日志输出级别 -->
+    </Properties>
+
+    <!--先定义所有的appender-->
+    <appenders>
+        <!--这个输出控制台的配置-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--这个都知道是输出日志的格式<PatternLayout pattern="${log_pattern}"/>-->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level - %msg%xEx%n"/>
+        </Console>
+        <!--
+        重要的是，如果有多个ThresholdFilter，那么Filters是必须的，同时在Filters中，首先要过滤不符合的日志级别，把不需要的首先DENY掉，然后再ACCEPT需要的日志级别，这个次序不能搞颠倒。
+         -->
+        <!-- 保存异常信息到单独文件 -->
+        <RollingFile name="error" fileName="logs/devepau/error.log"
+                     filePattern="logs/devepau/error-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss} [%thread] %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+        <!-- 系统日志-输出到日志文件 -->
+        <RollingFile name="sysLog" fileName="logs/devepau/sysLog.log"
+                     filePattern="logs/devepau/sysLog_%d{yyyyMMdd}.log">
+            <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss} [%thread] %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+    </appenders>
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+    <loggers>
+        <!--建立一个默认的root的logger，需要在root的level中指定输出的级别，-->
+        <root level="ON" includeLocation="true">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="error" level="error"/>
+        </root>
+        <AsyncLogger name="sysLog" level="${output_log_level}" includeLocation="true">
+            <appender-ref ref="sysLog"/>
+        </AsyncLogger>
+    </loggers>
+</configuration>

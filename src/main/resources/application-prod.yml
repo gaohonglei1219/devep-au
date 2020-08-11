@@ -1,0 +1,40 @@
+logging:
+  level:
+    com.bonc.msiopeventdispatch.mapper: DEBUG
+server:
+  port: 8899
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 1000MB
+      max-file-size: 200MB
+      file-size-threshold: 10MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      stat-view-servlet:
+        enabled: true
+        login-password: druid
+        login-username: druid
+        reset-enable: true
+        url-pattern: /druid/*
+      test-while-idle: true
+      validation-query: SELECT 1
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://94.237.66.73:3306/devep-au?characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+    username: root
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.devep.vo
+  configuration:    
+    map-underscore-to-camel-case: true
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
