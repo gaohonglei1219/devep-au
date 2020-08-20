@@ -21,25 +21,97 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/responsive2.css">
-
+    <link rel="stylesheet" href="./css/indexDev.css">
+    <script src="./js/devepIndex.js" rel="stylesheet"></script>
+    <script src="./js/bootstrap.min.js"></script>
 </head>
 <script>
 
-    var wapurl="http://localhost:8090/indexM"
+    var wapurl = "http://localhost:8090/indexM"
 
-    if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
-        if(window.location.href.indexOf("?mobile")<0){
-            try{
-                if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
-                    window.location.href=wapurl;
-                }else{
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+        if (window.location.href.indexOf("?mobile") < 0) {
+            try {
+                if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                    window.location.href = wapurl;
+                } else {
                     //window.location.href=wapurl;
                 }
-            }catch(e){}
+            } catch (e) { }
         }
     }
 </script>
+
 <body>
+    <div class="modal fade" id="myModal">
+        <div class="cover">
+            <div class="content">
+                <div class="left">
+                    <h4>require kind</h4>
+                    <span>Excel</span>
+                    <span>Access</span>
+                    <span>IOS</span>
+                    <span>Andriod</span>
+                    <span>Facebook App</span>
+                    <span>HTML</span>
+                    <span>shopify</span>
+                    <div id="textForIcon">this is samples for differnt span which be clicked</div>
+                </div>
+                <div class="right">
+                    <div class="big-title">Looking to hire a Digital Marketing Expert?</div>
+                    <div class="small-title">Send in your requirement and experience our elite customer service</div>
+                    <form enctype="multipart/form-data" method="post" action="/file-branch/projectInfo/upExcel"></form>
+                    <div class="input-inp">
+                        <div class="one">
+                            <div class="title">name*</div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="eg John"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+                        </div>
+                        <div class="one">
+                            <div class="title">Email Address*</div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="eg John"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+
+                        </div>
+                        <div class="one">
+                            <div class="title">Contact Number</div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="eg John"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+                        </div>
+                        <div class="one">
+                            <div class="title">Project duration</div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="eg John"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+                        </div>
+                        <div class="two">
+                            <div class="title">Website/Company</div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="eg John"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+                        </div>
+
+
+                        </form>
+                    </div>
+                    <div class="one">
+                        <div class="title"> Project Files</div>
+                        <input type="file" name="file" />
+                    </div>
+                </div>
+            </div>
+            <button class="hideNow">Hide Now</button>
+        </div>
+    </div>
+
     <header class="zdHeader transiton3s">
         <div class="pcNav indexNav">
             <div class="container clearfix">
@@ -68,14 +140,17 @@
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
-                            <img class="objectCover" src="http://zdocd.com/uploadfile/202003/9fecc31925.png" alt="" />
+                            <img class="objectCover" src="http://zdocd.com/uploadfile/202003/9fecc31925.png" alt=""
+                                onclick="submitReq()" />
                         </div>
 
                         <div class="swiper-slide">
-                            <img class="objectCover" src="http://zdocd.com/uploadfile/202003/dfdee7c076.png" alt="" />
+                            <img class="objectCover" src="http://zdocd.com/uploadfile/202003/dfdee7c076.png" alt=""
+                                onclick="submitReq()" />
                         </div>
                         <div class="swiper-slide">
-                            <img class="objectCover" src="http://zdocd.com/uploadfile/202003/dfdee7c076.png" alt="" />
+                            <img class="objectCover" src="http://zdocd.com/uploadfile/202003/dfdee7c076.png" alt=""
+                                onclick="submitReq()" />
                         </div>
                     </div>
                     <!-- Add Pagination -->
@@ -94,58 +169,58 @@
                 <ul class="serviceList col4List clearfix">
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/excel.png" alt="" class="indexModule1-pic">
-                            <p class="name">Excel</p>
-                            <p class="pro">Excel application,help daily report work</p>
+                        <img src="./images/excel.png" alt="" class="indexModule1-pic">
+                        <p class="name">Excel</p>
+                        <p class="pro">Excel application,help daily report work</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/access.png" alt="" class="indexModule1-pic">
-                            <p class="name">Access</p>
-                            <p class="pro">Access application,professional manage operation data</p>
+                        <img src="./images/access.png" alt="" class="indexModule1-pic">
+                        <p class="name">Access</p>
+                        <p class="pro">Access application,professional manage operation data</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/ios.png" alt="" class="indexModule1-pic">
-                            <p class="name">ios</p>
-                            <p class="pro">high-end ios application development</p>
+                        <img src="./images/ios.png" alt="" class="indexModule1-pic">
+                        <p class="name">ios</p>
+                        <p class="pro">high-end ios application development</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/andriod.png" alt="" class="indexModule1-pic">
-                            <p class="name">andriod</p>
-                            <p class="pro">more stable,more convenient</p>
+                        <img src="./images/andriod.png" alt="" class="indexModule1-pic">
+                        <p class="name">andriod</p>
+                        <p class="pro">more stable,more convenient</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/facebook.png" alt="" class="indexModule1-pic">
-                            <p class="name">Facebook App</p>
-                            <p class="pro">dig into facebook ecology</p>
+                        <img src="./images/facebook.png" alt="" class="indexModule1-pic">
+                        <p class="name">Facebook App</p>
+                        <p class="pro">dig into facebook ecology</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/ie.png" alt="" class="indexModule1-pic">
-                            <p class="name">Html</p>
-                            <p class="pro">cross-platform & compatible to most browser</p>
+                        <img src="./images/ie.png" alt="" class="indexModule1-pic">
+                        <p class="name">Html</p>
+                        <p class="pro">cross-platform & compatible to most browser</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/shopify.png" alt="" class="indexModule1-pic">
-                            <p class="name">Shopify </p>
-                            <p class="pro">Professional Shopify web design</p>
+                        <img src="./images/shopify.png" alt="" class="indexModule1-pic">
+                        <p class="name">Shopify </p>
+                        <p class="pro">Professional Shopify web design</p>
                         <!-- </a> -->
                     </li>
                     <li class="transiton3s">
                         <!-- <a href=""> -->
-                            <img src="./images/techSupport.png" alt="" class="indexModule1-pic">
-                            <p class="name">maintaining </p>
-                            <p class="pro">permanent tech support & software update in demand</p>
+                        <img src="./images/techSupport.png" alt="" class="indexModule1-pic">
+                        <p class="name">maintaining </p>
+                        <p class="pro">permanent tech support & software update in demand</p>
                         <!-- </a> -->
                     </li>
 
@@ -823,6 +898,8 @@
             </div>
         </div>
     </footer>
+
+    </div>
     <script type="text/javascript" src="http://zdocd.com/statics/zdfc/js/jquery.js"></script>
     <script type="text/javascript" src="http://zdocd.com/statics/zdfc/js/bootstrap.js"></script>
     <script type="text/javascript" src="http://zdocd.com/statics/zdfc/js/swiper.min.js"></script>
