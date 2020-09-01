@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"-->
+<!--    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+<!--<link rel="stylesheet" href="../../static/css/projectManage.css">-->
+
+
+<link href="../css/bootstrap-table-all.css">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap-table.min.css" rel="stylesheet">
+<link href="../css/pagination.css" rel="stylesheet">
+<link href="../css/projectManage.css" rel="stylesheet">
+
+<script src="../js/jquery-3.2.1.min.js" rel="stylesheet"></script>
+<script src="../js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="../js/jquery.pagination.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/tableExport.min.js"></script>
+
+
+<script src="../js/bootstrap-table.min.js"></script>
+<script src="../js/bootstrap-table-zh-CN.min.js"></script>
+<!-- <script src="../js/bootstrap-table-locale-all.min.js"></script>
+<script src="../js/bootstrap-table-export.min.js"></script> -->
+
+<style>
+    .select,
+    #locale {
+        width: 100%;
+    }
+
+    .like {
+        margin-right: 10px;
+    }
+</style>
+
+<script>
+ 
+    function finishPro() {
+        var ids = getIdSelections()
+        var boolCheck = confirm("是否确定项目已经完结，将项目转化为存量项目？")
+        if (boolCheck) {
+            $.ajax({
+                url: '/file-branch/project/finishProjects',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "ids": ids
+                }),
+                dataType: 'json',
+                success: function (d) {
+                    alert(d.mess)
+
+
+                }
+            })
+        }
+    }
+    function downloadExcel() {
+        var year = "";
+        var countyName = "";
+        var url = "/file-branch/projectInfo/downExcel?year=" + year + "&countyName=" + countyName;
+
+        window.location.href = url;
+    }
+
+    window.operateEvents = {
+        'click .manageFiles': function (e, value, row) {
+            url = '/file-branch/fileList?proId=' + row.id
+                + '&countyId=' + row.countyId
+                + '&countyName=' + row.countyName
+                + '&proYear=' + row.proYear
+                + '&proName=' + row.proName;
+            alert(url)
+            window.location.href = url;
+        },
+        'click .manageProInfo': function (e, value, row, index) {
+
+            sessionStorage.setItem("countyId", row.countyId)
+            sessionStorage.setItem("countyName", row.countyName)
+            sessionStorage.setItem("proUserId", $("#loginUserId").text())
+            sessionStorage.setItem("proUserName", row.proCreateUserName)
+            sessionStorage.setItem("proName", row.proName)
+            sessionStorage.setItem("proId", row.id)
+            sessionStorage.setItem("proYear", row.proYear)
+
+            window.location.href = '/file-branch/projectInfo/newProInfo'
+            // if (row.proState == 1) {
+            //     window.location.href = '/file-branch/projectInfo/main'
+            // }
+            // if (row.proState == 0) {
+            //     window.location.href = '/file-branch/projectInfo/donePro'
+            // }
+
+        }
+
+    }
+
+    var selections = []
+
+    function getIdSelections() {
+        return $.map($('#table').bootstrapTable('getSelections'), function (row) {
+            return row.id
+        })
+    }
+    function getStatesSelections() {
+        return $.map($('#table').bootstrapTable('getSelections'), function (row) {
+            return row.proState
+        })
+    }
+    function allUnDone() {
+        var proStates = getStatesSelections()
+        if (proStates.length == 0) {
+            return false
+        }
+        var removeItem = 1
+        proStates = $.grep(proStates, function (value) {
+            return value != removeItem;
+        });
+        if (proStates.length == 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+    function selectedYearAndCounty() {
+        if ($("#projectYear option:selected").val() == "" || $("#countyId option:selected").val() == "") {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function queryProject() {
+        var year = $("#projectYear option:selected").val();
+        var countyId = $("#countyId option:selected").val();
+
+
+        $('#table').bootstrapTable('destroy').bootstrapTable({
+            method: 'Get',
+            url: '/file-branch/project/getProjectInfo',
+            pagination: true,
+            search: false,
+            sidePagination: "server", //服务端处理分页
+            pageNumber: 1,                       //初始化加载第一页，默认第一页
+            pageSize: 5,                       //每页的记录行数（*）
+            pageList: [5, 10, 20, 25],
+            showRefresh: true,//刷新按钮
+            queryParams: function (params) {
+                return {
+                    page: (params.offset / params.limit) + 1,
+                    pageSize: params.limit,
+                    year: year,
+                    countyId: countyId,
+
+                };
+            },
+            responseHandler: function (res) {
+
+                return {
+                    "total": res.total,//总页数
+                    "rows": res.list //数据
+                }
+            },
+
+            columns: [
+                [{
+                    field: 'state',
+                    checkbox: true,
+                    rowspan: 2,
+                    align: 'center',
+                    valign: 'middle'
+                }, {
+                    field: 'id',
+                    title: '项目编号',
+                    rowspan: 2,
+                    align: 'center',
+                    valign: 'middle',
+                    sortable: true,
+                    footerFormatter: totalTextFormatter
+                }, {
+                    title: '项目详情',
+                    colspan: 7,
+                    align: 'center'
+                }], [{
+                    field: 'countyName',
+                    title: '区县名称'
+                }, {
+                    field: 'proName',
+                    title: '项目名称'
+                }, {
+                    field: 'proYear',
+                    title: '项目年份'
+                }, {
+                    field: 'proCreateUserName',
+                    title: '创建人'
+                }, {
+                    field: 'proCreateTime',
+                    title: '创建时间'
+                }, {
+                    field: 'proStateName',
+                    title: '项目状态',
+                }, {
+                    field: 'operate',
+                    title: '文件操作',
+                    align: 'center',
+                    events: window.operateEvents,
+                    formatter: operateFormatter
+                }, {
+                    title: 'proState',
+                    field: 'proState',
+                    visible: false
+                }]
+            ]
+        })
+
+        $('#table').on('check.bs.table uncheck.bs.table ' +
+            'check-all.bs.table uncheck-all.bs.table',
+            function () {
+                $('#remove').prop('disabled', !$('#table').bootstrapTable('getSelections').length)
+                $('#download').prop('disabled', !$('#table').bootstrapTable('getSelections').length)
+                $('#finishProject').prop('disabled', !allUnDone())
+
+
+                // save your data, here just save the current page
+                selections = getIdSelections()
+                // push or splice the selections if you want to save all data selections
+
+            })
+        $('#download').click(function () {
+
+
+
+            var ids = getIdSelections()
+
+            // var url = "/file-branch/project/downloadProjects?ids = " + ids;
+            // window.location.href = url;
+
+            var url = "/file-branch/project/downloadProjects";
+            //创建要提交的参数
+
+            //创建form
+            var form = $("<form>");
+            $('body').append(form);
+            //设置属性
+            form.attr('action', url);
+            form.attr('method', "post");
+            //创建input，即参数
+            var inputids = $('<input>');
+            inputids.attr('target', '');
+            inputids.attr('name', 'ids');
+            inputids.attr("value", ids);
+            form.append(inputids);
+            alert(form);
+            form.submit();
+            form.remove();
+
+
+
+        })
+
+        $('#remove').click(function () {
+            var ids = getIdSelections()
+
+            $.ajax({
+                url: '/file-branch/project/deleteProjects',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "ids": ids
+                }),
+                dataType: 'json',
+                success: function (d) {
+                    alert(d.mess)
+                    if (d.mess === "删除成功") {
+                        $("#table").bootstrapTable('refresh');
+                        $('#remove').prop('disabled', true)
+                    }
+
+                }
+            })
+
+        })
+
+    }
+
+    $(function () {
+        $("#queryProject").click(function () { queryProject() });
+        $("#projectYear").change(function () {
+            $('#add').prop('disabled', !selectedYearAndCounty())
+        });
+        $("#countyId").change(function () {
+            $('#add').prop('disabled', !selectedYearAndCounty())
+        });
+    })
+
+    function totalTextFormatter(data) {
+        return 'Total'
+    }
+
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="manageFiles" href="javascript:void(0)" title="manageFiles">',
+            '<i class="btn btn-primary">文件管理</i>',
+            '</a>  ',
+            '<a class="manageProInfo" href="javascript:void(0)" title="manageProInfo">',
+            '<i class="btn btn-primary">资料管理</i>',
+            '</a>'
+        ].join('')
+    }
+
+    function add_project() {
+        alert(selectedYearAndCounty());
+        $('#myModal').modal();
+        var year = $("#projectYear option:selected").val();
+        var countyId = $("#countyId option:selected").val();
+        var countyName = $("#countyId option:selected").text();
+        var userId = $("#loginUserId").text();
+        var userName = $("#loginUserName").text();
+        document.getElementById("createdProYear").value = year;
+        document.getElementById("createdProCountyId").value = countyId;
+        document.getElementById("createdProCountyName").value = countyName;
+        document.getElementById("createdUserId").value = userId;
+        document.getElementById("createdUserName").value = userName;
+    }
+
+    function insertProject() {
+        var year = $("#projectYear option:selected").val();
+        var countyId = $("#countyId option:selected").val();
+        var countyName = $("#countyId option:selected").text();
+        var userId = document.getElementById("createdUserId").value;
+        var proName = document.getElementById("createdProName").value;
+        var proState = $("#proState option:selected").val();
+
+
+        if (proName == null || proName == "" || proName == 'undefined') {
+            alert("请输入项目名称")
+            return false;
+        }
+
+        $.ajax({
+            url: '/file-branch/project/insertNewProject',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "userId": userId,
+                "countyId": countyId,
+                "year": year,
+                "proName": proName,
+                "countyName": countyName,
+                "proState": proState
+            }),
+            dataType: 'json',
+            success: function (data) {
+                var mess = data.mess;
+                alert(mess);
+                $("#table").bootstrapTable('refresh');
+            }
+        })
+    }
+
+</script>
+
+<body>
+
+    <div class="topNav">
+        <div class="left">
+            <img src="../img/5G.jpg" alt="图片加载失败">
+            <h1 class="title">凉山州DICT-项目台账管理</h1>
+        </div>
+        <div class="right">
+            <div class="welcome">欢迎您 用户
+                <span id="loginUserId" th:text="${session.userInfo.id}" hidden></span>
+                <span id="loginUserName" th:text="${session.userInfo.userName}"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="wrap-box">
+        <ul class="nav">
+
+            <div class="input-group input-group-sm mb-3">
+
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" placeholder="Search">
+            </div>
+
+            <a href="/file-branch/project/main">项目台账管理</a>
+            <li>账号管理</li>
+            <li>待新增</li>
+        </ul>
+
+        <div class="content">
+            
+                <div class="form-search">
+                    <div class="item">
+                        <p class="item-label title">年份：</p>
+                        <div class="input-group sele-inp">
+                            <select class="custom-select" id="projectYear">
+                                <option value="" text="全部">全部</option>
+                                <option th:each="year:${years}" th:value="${year.year }" th:text="${year.year }">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item area">
+                        <p class="item-label title">区县：</p>
+                        <div class="input-group sele-inp">
+                            <select class="custom-select" id="countyId">
+                                <option value="" text="全部">全部</option>
+                                <option th:each="county:${counties}" th:value="${county.id}"
+                                    th:text="${county.countyName}"></option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary query" id="queryProject">查询</button>
+                </div>
+                <br>
+                <div id="toolbar">
+                    <button id="add" class="btn btn-primary" type="button" onclick="add_project()" disabled>
+                        <i class="glyphicon glyphicon-add" ></i> 添加项目
+                    </button>
+                    <button id="edit" class="btn btn-primary" onclick="edit_project()">
+                        <i class="glyphicon glyphicon-add"></i> 编辑项目
+                    </button>
+                    <button id="remove" class="btn btn-danger" type="button" disabled>
+                        <i class="glyphicon glyphicon-remove"></i> 删除项目
+                    </button>
+                    <button id="download" class="btn btn-success" type="button" disabled>
+                        <i class="glyphicon glyphicon-remove"></i> 下载文件
+                    </button>
+                    <button id="downExcel" onclick="downloadExcel()" class="btn btn-success" type="button">
+                        <i class="glyphicon glyphicon-remove"></i> 下载Excel
+                    </button>
+                    <button id="finishProject" onclick="finishPro()" class="btn btn-success" type="button" disabled>
+                        <i class="glyphicon glyphicon-remove"></i> 完结项目
+                    </button>
+
+
+                </div>
+                <form enctype="multipart/form-data" method="post" action="/file-branch/projectInfo/upExcel">
+                    文件
+                    <input type="file" name="file" /> <input type="submit" value="上传" />
+                </form>
+                <table id="table">
+                </table>
+
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">添加项目</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="createdProYear" placeholder="项目年份" disabled>
+                                <input type="text" class="form-control" id="createdProCountyId" hidden>
+                                <input type="text" class="form-control" id="createdProCountyName" placeholder="项目归属区县"
+                                    disabled>
+                                <input type="text" class="form-control" id="createdProName" placeholder="请输入项目名称">
+                                <input type="text" class="form-control" id="createdUserId" hidden>
+
+                                <input type="text" class="form-control" id="createdUserName" placeholder="项目上传人"
+                                    disabled>
+                                <div class="form-group">
+                                    <label for="proState">项目状态：</label>
+                                    <select multiple class="form-control" name="proState" id="proState" type="select">
+                                        <option selected="selected" value="1">在建</option>
+                                        <option value="0">存量</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-btn-success" onclick="insertProject()"
+                                    data-dismiss="modal">提交</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            
+
+        </div>
+    </div>
+
+</body>
+
+
+</html>
