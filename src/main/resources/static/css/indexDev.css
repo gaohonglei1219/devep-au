@@ -1,0 +1,92 @@
+.modal-dialog-centered{
+    height: 100%;
+}
+.modal-dialog{
+    width: 70%;
+}
+.cover{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    padding: 40px;
+    /* box-sizing: border-box; */
+    font-size: 20px;
+    height: 600px;
+    width: 60%;
+    border-radius: 10px;
+}
+.cover .content{
+    display: flex;
+
+}
+.cover .hideNow{
+    align-self: center;
+    background-color: #832D19;
+    color: #fff;
+    border: 0px solid #000;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+
+}
+.cover .left{
+    width: 40%;
+    margin-right: 20px;
+}
+.cover .right{
+    flex:1;
+    margin-left: 20px;
+}
+.cover .left>h4{
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.cover .left>span{
+    border: 1px solid #832D19;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 6px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.cover .right .input-inp{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cover .right .input-inp>.one{
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    width: 48%;
+    margin-right: 10px;
+}
+.cover .right .input-inp>.one,.two>.title{
+    margin-right: 10px;
+}
+.cover .right .input-inp>.two{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.cover .right .input-inp>.two .input-group{
+    flex: 1;
+}
+.cover .right .big-title{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.cover .right .small-title{
+    font-size: 18px;
+    text-align: center;
+}
