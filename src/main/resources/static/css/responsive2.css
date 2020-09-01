@@ -1,0 +1,1122 @@
+@media only screen and (min-width: 100px) and (max-width: 1500px) {
+	.caseModule .list{
+		margin: 0;
+	}
+}
+@media only screen and (min-width: 100px) and (max-width: 1200px) {
+	.serviceList li .name{
+		font-size: 18px;
+	}
+	.serviceList li .icon{
+		width: 60px;
+	}
+	.indexModule4 .advantage .itemCenter{
+		display: none;
+	}
+	.indexModule4 .advantage .item1, .indexModule4 .advantage .item3,.indexModule4 .advantage .item2, .indexModule4 .advantage .item4{
+		width: 45%;
+	}
+	.indexModule4 .advantage .item3, .indexModule4 .advantage .item4{
+		top: 190px;
+	}
+	.indexModule4 .advantage{
+		height: 325px;
+	}
+	.indexModule5 .process .icon{
+		width: 50px;
+	}
+	.indexModule5 .process .pro{
+		padding-left: 60px;
+	}
+	.indexModule5 .process .itemBot .name{
+		bottom: 42px;
+		left: 4px;
+	}
+	.indexModule5 .process .itemBot .step{
+		left: 44px;
+    	bottom: 36px;
+	}
+	.indexModule5 .process .step{
+		font-size: 15px;
+	}
+	.indexModule5 .process .itemTop .step{
+		left: 44px;
+    	top: 40px;
+	}
+	.indexModule5 .process .name{
+		font-size: 18px;
+		margin-top: 38px;
+		margin-bottom: 10px;
+	}
+	.indexModule5 .process .itemTop .icon{
+		top: 100px;
+	}
+	.indexModule6 .partner .item.item7{
+		margin-left: 80px;
+	}
+	.indexModule6 .partner .item{
+		height: 160px;
+	}
+	.appModule1 .list .box .pro{
+		font-size: 14px;
+	}
+	.appModule1 .list .box .name{
+		font-size: 24px;
+	}
+	.appModule2 .list .item .icon{
+		width: 100px;
+	}
+	.appModule2 .list .item .name{
+		font-size: 18px;
+	}
+	.appModule2 .list .leftBox .icon {
+	    left: 22px;
+	    top: 44px;
+	}
+	.appModule2 .list .leftBox .item, .appModule2 .list .rightBox .item{
+		padding-top: 20px;
+		height: 186px;
+	}
+	.appModule2 .list .leftBox .name, .appModule2 .list .leftBox .pro{
+		margin-right: 10px;
+	}
+	.appModule2 .list .rightBox .name, .appModule2 .list .rightBox .pro{
+		margin-left: 10px;
+	}
+	.appModule2 .list .rightBox .icon{
+		right: 22px;
+	    top: 44px;
+	}
+	.appModule2 .list .centerBox .item{
+		height: 392px;
+		padding-top: 204px;
+	}
+	.appModule2 .list .centerBox .icon {
+	    left: 44px;
+	    top: 110px;
+	}
+	.wxModule1 .list .box .icon{
+		max-width: 40%;
+		margin-bottom: 16px;
+	}
+	.wxModule1 .list .box .name{
+		font-size: 20px;
+		margin-bottom: 16px;
+	}
+	.wxModule1 .list .box{
+		padding: 30px 14px 0;
+	}
+	.caseModule .list .box{
+		height: auto;
+		padding-bottom: 20px;
+	}
+	.caseModule .list .box .picBox{
+		height: 180px;
+	}
+	.footerForm .box .asideForm{
+		width: 80%;
+	}
+	.footerForm .box .icon{
+		width: 18%;
+	}
+	.footerForm .box .asideForm .formTit{
+		font-size: 20px;
+	}
+	.footerForm{
+		height: 130px;
+	}
+	.footerForm .box .asideForm .nameInput, .footerForm .box .asideForm .telInput, .footerForm .box .asideForm .nameInput, .footerForm .box .asideForm .requireInput{
+		height: 36px;
+		line-height: 36px;
+		margin-right: 10px;
+		width: 100px;
+		font-size: 14px;
+	}
+	.footerForm .box .asideForm .telInput{
+		width: 150px;
+	}
+	.footerForm .box .asideForm .requireInput{
+		width: 300px;
+	}
+	.footerForm .box .asideForm #formSubBtn{
+		height: 36px;
+		line-height: 36px;
+		font-size: 14px;
+	}
+	.footerForm .box .closebtn{
+		top: -40px;
+	}
+	.inBanner .title1.caseText{
+		font-size: 44px;
+		letter-spacing: 2px;
+	}
+	.inBanner .title1.newsText{
+		font-size: 60px;
+		letter-spacing: 2px;
+	}
+	.inBanner .title1.abText{
+		font-size: 60px;
+		letter-spacing:2px;
+	}
+	.indexModule3 .content .IndexCaseList li .picBox{
+		height: 200px;
+	}
+	.indexModule3 .content .IndexCaseList li .box{
+		height: 270px;
+	}
+	.indexBanner .bannertxt1{
+		font-size: 64px;
+		top: 30vh;
+	}
+	.indexBanner .bannertxt2{
+		font-size: 36px;
+		    top: 42vh;
+	}
+	.indexBanner .bannertxt3{
+		font-size: 18px;
+		top: 51vh;
+	}
+	.zdHeader .zdNav>a, .zdHeader .zdNav .navitem{
+		font-size: 15px;
+		margin-left: 20px;
+	}
+	.caseModule .hangyeBox .hangye{
+		margin-right: 30px;
+	}
+	.caseModule .list .item{
+		height: auto;
+	}
+}
+@media only screen and (max-width:1000px) {
+	.zdHeader .zdNav{
+		font-size: 14px;
+	}
+	.indexNum .item .timer{
+		font-size: 36px;
+	}
+	.indexNum .item span{
+		font-size: 16px;
+	}
+	.moduleTit{
+		font-size: 36px;
+		margin-bottom: 20px;
+		line-height: 1.5;
+	}
+	.modulePro{
+		font-size: 16px;
+		padding: 0;
+	}
+	.serviceList li .name{
+		font-size: 16px;
+		line-height: 1.5;
+		margin-bottom: 5px;
+	}
+	.serviceList li .icon{
+		margin-bottom: 10px;
+	}
+	.serviceList li{
+		padding: 10px 10px 0;
+	}
+	.indexModule2 .swi .view .item .textBox .tit{
+		font-size: 24px;
+	}
+	.indexModule2 .swi .view .item .textBox .pro{
+		font-size: 14px;
+		line-height: 1.5;
+		height: auto;
+	}
+	.indexModule2 .swi .view .item{
+		padding: 20px;
+		height: 278px;
+	}
+	.indexModule2 .swi .view .item .textBox .moreBtn{
+		height: 32px;
+		line-height: 32px;
+		width: 120px;
+		font-size: 14px;
+	}
+	.indexModule2 .tabContent .item .textBox .tit{
+		font-size: 24px;
+	}
+	.indexModule2 .tabContent .item .textBox .pro{
+		font-size: 14px;
+		line-height: 1.5;
+		height: 147px;
+	}
+	.indexModule2 .tabContent .item{
+		padding: 20px;
+		height: 278px;
+	}
+	.indexModule2 .tabContent .item .textBox .moreBtn{
+		height: 32px;
+		line-height: 32px;
+		width: 120px;
+		font-size: 14px;
+	}
+	.indexModule3 .IndexCaseList li .picBox{
+		height: 160px;
+	}
+	.indexModule3 .IndexCaseList li .box{
+		height: auto;	
+	}
+	.indexModule3 .IndexCaseList li .textBox .name{
+		font-size: 18px;
+	}
+	.indexModule3 .IndexCaseList li .textBox{
+		padding: 20px 10px;
+	}
+	.indexModule5 .process{
+		display: none;
+	}
+	.indexModule5 .stepMo{
+		display: block;		
+	}
+	.indexModule6 .partner .item.item7{
+		margin-left: 60px;
+	}
+	.indexModule6 .partner .item{
+		height: 16vw;
+	}
+	.indexModule6 .partner .item.itemBot{
+		top: -18px;
+	}
+	.indexModule7 .news .newsTop .tit{
+		font-size: 14px;
+		height: 54px;
+	}
+	.indexModule7 .news .tit{
+		font-size: 14px;
+	}
+	.indexModule7 .news .newsTop .picBox{
+		height: 80px;
+	}
+	.zdHeader .zdNav .navTwo{
+		left: -98px;	
+	}
+	.zdHeader .zdNav .navTwo .box{
+		width: 250px;
+		height: 120px;
+		padding-top: 20px;
+	}
+	.zdHeader .zdNav .navTwo .box .item .icon{
+		background-size: 400px;
+		background-position-y: -62px;
+	}
+	.zdHeader .zdNav .navTwo .box .item .icon.icon1{
+		background-position-x: -204px;
+	}
+	.zdHeader .zdNav .navTwo .box .item .icon.icon2{
+		background-position-x: -266px;
+	}
+	.zdHeader .zdNav .navTwo .box .item .icon.icon3{
+		background-position-x: -328px;
+	}
+	.zdHeader .zdNav .navTwo .box .item .icon{
+		width: 62px;
+		height: 62px;
+	}
+	.zdHeader .zdNav .navTwo .box .item:hover .icon{
+		background-position-y: 0;
+	}
+	.zdHeader .zdNav>.active .active .icon{
+		background-position-y: 0 !important;
+	}
+	.zdHeader .zdNav .navTwo .box .item p{
+		font-size: 14px;
+	}
+	.zdHeader .zdNav>a, .zdHeader .zdNav .navitem{
+		margin-left: 30px;
+	}
+	.inBanner .title1{
+		font-size: 28px;
+		padding: 0 20px;
+	}
+	.inBanner .title2{
+		font-size: 20px;
+	}
+	.inBanner{
+		padding-top: 120px;
+	}
+	.appModule1 .list .box{
+		height: 290px;
+		padding: 10% 10px 0;
+	}
+	.appModule1 .list .box .icon{
+		margin-bottom: 10px;
+	}
+	.appModule2 .list .leftBox,.appModule2 .list .rightBox,.appModule2 .list .centerBox{
+		width: 100%;
+		padding: 0;
+	}
+	.appModule2 .list .leftBox .name, .appModule2 .list .leftBox .pro{
+		width: 82%;
+		margin-right: 20px;
+	}
+	.appModule2 .list .rightBox .name, .appModule2 .list .rightBox .pro{
+		width: 82%;
+		margin-left: 20px;
+	}
+	.appModule2 .list .leftBox .item, .appModule2 .list .rightBox .item{
+		height: 130px;
+	}
+	.appModule2 .list .leftBox .icon{
+		left: 0;
+		top: 16px;
+	}	
+	.appModule2 .list .rightBox .icon{
+		right: 0;
+		top: 16px;
+	}
+	.appModule2 .list .centerBox .item{
+		height: 200px;
+		padding-top: 96px;
+	}
+	.appModule2 .list .item3{
+		background-size: 100% 50px;
+	}
+	.appModule2 .list .centerBox .icon{
+		top: 0;
+		left: 50%;
+		margin-left: -50px;
+	}
+	.xcxModule1 .list .textBox .name{
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+	.xcxModule1 .list .textBox .pro{
+		font-size: 14px;		
+	}
+	.xcxModule1 .list .textBox .pro p{
+		margin-bottom: 10px;
+	}
+	.xcxModule3 .list li .text{
+		font-size: 18px;
+	}
+	.xcxModule3 .list li .icon{
+		max-width: 60%;
+		margin-bottom: 16px;
+	}
+	.xcxModule3 .list li{
+		height: 170px;
+		padding-top: 18px;
+	}
+	.xcxModule4 .list .item .text{
+		font-size: 20px;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+	.xcxModule4 .list .item .boxx,.xcxModule4 .list .item,.xcxModule4 .list .item .box{
+		height: 100px;
+	}
+	.wxModule1 .list .box{
+		padding-top: 20px;
+	}
+	.wxModule1 .list .box .name{
+		margin-bottom: 10px;
+	}
+	.wxModule1 .list .box .pro p {
+	    margin-bottom: 6px;
+	}
+	.wxModule2 .list li .box{
+		padding-top: 6%;
+		height: 190px;
+		padding-left: 5%;
+	}
+	.caseTit .item .name{
+		margin-bottom: 10px;
+	}
+	.caseTit .item .tags{
+		width: 100%;
+	}
+	.tuijian .list li .picBox{
+		display: none;
+	}
+	.tuijian .list li .textBox{
+		width: 100%;
+		padding-left: 0;
+		padding-bottom: 10px;
+	}
+	.tuijian .list li .textBox .name{
+		font-size: 14px;
+	}
+	.rightBox h6.tit{
+		font-size: 18px;
+	}
+	.newsList .textBox .tit{
+		font-size: 18px;
+	}
+	.newsList .textBox .pro{
+		height: 44px;
+	}
+	.newsList .textBox{
+		width: 78%;
+	}
+	.newsList .picBox{
+		width: 22%;
+		height: 138px;
+	}
+	.tuijian{
+		padding: 20px 14px;
+	}
+	.abModule1 .box .leftBox,.abModule1 .box .rightBox{
+		width: 100%;
+		padding: 0;
+	}
+	.abModule1 .box .rightBox{
+		padding-top: 30px;
+	}
+	.caseRelative .list .name{
+		font-size: 16px;
+	}
+	.caseRelative .list .picBox{
+		height: 150px;
+	}
+	.newsDeBox .topBox .newsTit{
+		font-size: 24px;
+	}
+	.nexPrevArt{
+		font-size: 14px;
+	}
+	.rightAside .asideList .item{		
+    	width: 80px;
+    	height: 80px;
+    	padding-top: 10px;
+	}
+	.rightAside .asideList .item .icon{
+		-moz-transform: scale(0.8);
+    	-webkit-transform: scale(0.8);
+    	-o-transform:scale(0.8);
+    	-ms-transform: scale(0.8);
+    	transform: scale(0.8);
+    	margin-bottom: 0;
+	}
+	#asideFormBtn img{
+		width: 140px;
+	}
+	.rightAside #backTop{
+		width: 60px;
+   	 	height: 50px;
+   	 	background-size: 440px;
+	}
+	.footerForm .box .icon{
+		display: none;
+	}
+	.footerForm .box .asideForm{
+		width: 100%;
+	}
+	.footerForm .box .asideForm .nameInput, .footerForm .box .asideForm .telInput, .footerForm .box .asideForm .nameInput, .footerForm .box .asideForm .requireInput{
+		margin-right: 2%;
+		width: 16%;
+	}
+	.footerForm .box .asideForm .telInput{
+		width: 24%;
+	}
+	.footerForm .box .asideForm .requireInput{
+		width: 40%;
+	}
+	.footerForm .box .asideForm #formSubBtn{
+		width: 14%;
+		margin-right: 0;
+	}
+	.inBanner .title1.caseText{
+		font-size: 34px;
+		letter-spacing: 0;
+	}
+	.inBanner .title1.newsText{
+		font-size: 54px;
+		letter-spacing: 0;
+	}
+	.inBanner .title1.abText{
+		font-size:54px;
+		letter-spacing:0px;
+	}
+	.indexBanner .bannertxt1 {
+    	font-size: 48px;
+    	
+	}
+	.indexBanner .bannertxt2{
+		font-size: 24px;
+		top: 40vh;
+	}
+	.indexBanner .bannertxt3 {
+	    font-size: 16px;
+	    top: 48vh;
+	}
+	.zdHeader .tel{
+		display: none;
+	}
+	.pcNav{
+		display: none;
+	}
+	.mobileNav{
+		display: block;
+	}
+	.menu{
+		display: block;
+	}
+	.zdHeader{
+		background-color: #394247;
+		padding-top: 16px;
+		height: 72px;
+	}
+	.indexBanner{
+		margin-top: 70px;
+	}
+}
+@media only screen and (min-width: 100px) and (max-width: 768px) {
+	
+	.indexNum .item .timer{
+		font-size: 24px;
+	}
+	.indexNum .item span{
+		font-size: 14px;
+	}
+	.indexNum{
+		height: auto;
+	}
+	.col5List li{
+		width: 48%;
+		margin-right: 4%;
+		margin-bottom: 4%;
+	}
+	.col5List li:nth-of-type(5n){
+		margin-right: 4%;
+	}
+	.col5List li:nth-of-type(2n){
+		margin-right: 0;
+	}
+	.serviceList li{
+		padding: 26px 10px 0;
+	}
+	.indexModule2 .swi .preview .swiper-slide span{
+		font-size: 14px;
+		margin: 4px;
+	}
+	.indexModule2 .tabBox .tabBar{
+		font-size: 14px;
+		margin: 4px;
+	}
+	.indexModule4 .advantage .name{
+		font-size: 22px;
+	}
+	.indexModule4 .advantage .item1, .indexModule4 .advantage .item3, .indexModule4 .advantage .item2, .indexModule4 .advantage .item4{
+		width: 50%;
+	}
+	.indexModule4 .advantage{
+		margin-top: 30px;
+	}
+	.indexModule6 .partner .item{
+		padding: 10px;
+	}
+	.indexModule6 .partner{
+		margin-top: 30px;
+	}
+	.indexModule6 .partner .item.item7{
+		margin-left: 8%;
+	}
+	.indexModule7 .news .item{
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	.indexModule7 .news .newsTop .tit,.indexModule7 .news .tit{
+		font-size: 16px;
+	}
+	.indexModule7 .news{
+		margin-bottom: 0;
+	}
+	.footer .footerLeft .name{
+		font-size: 24px;
+	}
+	.footer .footerLeft .pro{
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+	
+	.inBanner .title1{
+		font-size: 24px;
+	}
+	.appModule1 .list{
+		margin-top: 30px;
+	}
+	.appModule1 .list li{
+		margin-bottom: 30px;
+	}
+	.appModule1 .list .box{
+		height: auto;
+		padding:30px 10px;
+		
+	}
+	.appModule1 .list .box .icon{
+		max-width: 26%;
+	}
+	.appModule2 .list .leftBox .name, .appModule2 .list .leftBox .pro{
+		width: 80%;
+	}
+	.appModule2 .list .rightBox .name, .appModule2 .list .rightBox .pro{
+		width: 80%;
+	}
+	.wxModule1 .list li{
+		margin-bottom: 30px;
+	}
+	.wxModule1 .list .box{
+		height: auto;
+		padding: 30px 20px;
+	}
+	.detailModule .leftBox,.detailModule .rightBox{
+		width: 100%;
+		padding: 0;
+	}
+	.tuijian .list li .textBox .name{
+		font-size: 16px;
+	}
+	.tuijian .list li .textBox .name{
+		height: 16px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		line-height: 1;
+	}
+	.tuijian .list li .textBox{
+		padding-bottom: 20px;
+	}
+	.detailModule .rightBox{
+		margin-bottom: 50px;
+	}
+	.footerForm .box .asideForm .formTit{
+		font-size: 18px;
+	}
+	.inBanner .title1.caseText{
+		font-size: 28px;
+	}
+	.inBanner .title1.newsText{
+		font-size: 48px;
+	}
+	.inBanner .title1.abText{
+		font-size:48px;
+	}
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	
+	.indexBanner .objectCover{
+		min-height: 200px;		
+	}
+	.indexNum .item{
+		width: 50%;
+		margin-bottom: 10px;
+	}
+	.indexNum .item:nth-of-type(2){
+		border-right: none;
+	}
+	.indexNum .item .timer {
+	    font-size: 32px;
+	}
+	.moduleTit{
+		font-size: 28px;
+		margin-bottom: 10px;
+	}
+	.modulePro{
+		font-size: 14px;
+		padding: 0;
+	}
+	.serviceList{
+		margin-top: 30px;
+	}
+	.indexModule2 .swi .preview{
+		margin: 30px 0;
+	}
+	.indexModule2 .swi .preview .swiper-slide span{
+		line-height: 28px;
+		height: 28px;
+		margin: 4px 0;
+	}
+	.indexModule2 .swi .view .item .picBox{
+		display: none;
+	}
+	.indexModule2 .swi .view .item .textBox{
+		width: 100%;
+		padding: 0;
+	}
+	.indexModule2 .swi .view .item .textBox .pro{
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.indexModule2 .swi .view .item .textBox .tit{
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.indexModule2 .swi .view .item{
+		height: auto;
+	}
+	.indexModule2 .tabBox{
+		margin: 30px 0;
+	}
+	.indexModule2 .tabBox .tabBar{
+		line-height: 28px;
+		height: 28px;
+		margin: 4px 0;
+	}
+	.indexModule2 .tabContent .item .picBox{
+		display: none;
+	}
+	.indexModule2 .tabContent .item .textBox{
+		width: 100%;
+		padding: 0;
+	}
+	.indexModule2 .tabContent .item .textBox .pro{
+		height: 105px;
+		margin-bottom: 10px;
+	}
+	.indexModule2 .tabContent .item .textBox .tit{
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.indexModule2 .tabContent .item{
+		height: 220px;
+	}
+	.indexModule3 .tabBox{
+		margin: 30px 0;
+	}
+	.indexModule3 .tabBox .tabBar{
+		font-size: 14px;
+	}
+	.indexModule3 .moreBtn{
+		font-size: 14px;
+		line-height: 32px;
+		height: 32px;
+		width: 120px;
+	}
+	.indexModule4 .advantage .item1, .indexModule4 .advantage .item3, .indexModule4 .advantage .item2, .indexModule4 .advantage .item4{
+		width: 100%;
+		position: static;
+		padding:30px 0;
+		border-bottom: 1px solid #999;
+	}
+	.indexModule4 .advantage{
+		height: auto;
+	}
+	.indexModule5 .stepMo .item{
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	.indexModule5 .stepMo .item .icon{
+		width: 16%;
+	}
+	.indexModule5 .stepMo .item .text{
+		width: 84%;
+	}
+	.indexModule6 .partner .item{
+		width: 23%;
+		margin-right: 2%;
+		height: 28vw;
+	}
+	.indexModule6 .partner .item:nth-of-type(6n){
+		margin-right: 2%;
+	}
+	.indexModule6 .partner .item:nth-of-type(4n){
+		margin-right: 0;
+	}
+	.indexModule6 .partner .item.item7{
+		margin-left: 0;
+	}
+	.indexModule6 .partner .item.itemBot{
+		top: 0;
+	}
+	.indexModule7 .moreBtn{
+		line-height: 32px;
+		height: 32px;
+		width: 120px;
+		font-size: 14px;
+	}
+	.footer .footerLeft .name{
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	.footer .footerLeft .pro{
+		margin-bottom: 5px;
+	}
+	.footer{
+		padding-top: 30px;
+	}
+	.inBanner .title1{
+		font-size: 20px;
+		padding: 0;
+	}
+	.inBanner .title2{
+		font-size: 18px;
+	}
+	.inBanner{
+		margin-top: 72px;
+		padding: 50px 0;
+	}
+	.appModule2 .list .leftBox .item, .appModule2 .list .rightBox .item{
+		height: 170px;
+		padding-top: 14px;
+	}
+	.appModule2 .list .leftBox .name, .appModule2 .list .leftBox .pro,.appModule2 .list .rightBox .name, .appModule2 .list .rightBox .pro{
+		width: 60%;
+	}
+	.appModule2 .list .leftBox .icon{
+		left: 16px;
+		top: 32px;		
+	}
+	.appModule2 .list .rightBox .icon{
+		right: 16px;
+		top: 32px;
+	}
+	.appModule2 .list .centerBox .item{
+		height: 220px;
+	}
+	.xcxModule1 .list .imgBox{
+		width: 100%;
+		float: left;
+	}
+	.xcxModule1 .list .textBox{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.xcxModule1 .list{
+		margin-top: 30px;
+	}
+	.xcxModule1 .list .textBox .name{
+		font-size: 22px;
+	}
+	.xcxModule1 .list .item1 .imgBox .pic,.xcxModule1 .list .item2 .imgBox .pic{
+		float: none;
+		margin: 0 auto;
+		max-width: 80%;
+	}
+	.xcxModule1 .list .item1{
+		margin-bottom: 50px;
+	}
+	.xcxModule4 .list .item.longitem,.xcxModule4 .list .item.shortitem{
+		width: 48%;
+		padding: 0;
+		margin-right: 4%;
+	}
+	.xcxModule4 .list .item:nth-of-type(2n){
+		margin-right: 0;
+	}
+	.xcxModule4 .list{
+		margin-top: 30px;
+	}
+	.wxModule1 .list .box .icon{
+		max-width: 30%;
+	}
+	.wxModule2 .list li .name{
+		font-size: 18px;
+	}
+	.wxModule2 .list li .pro{
+		font-size: 14px;
+	}
+	.wxModule2 .list li .box{
+		height: auto;
+		padding-bottom: 6%;
+	}
+	.caseTit .item .tags span{
+		font-size: 14px;
+	}
+	.caseModule .list .box .textBox .name{
+		font-size: 18px;
+	}
+	.newsNav .item p{
+		font-size: 14px;
+	}
+	.newsNav .item .icon{
+		-moz-transform: scale(0.8);
+    	-webkit-transform: scale(0.8);
+    	-o-transform:scale(0.8);
+    	-ms-transform: scale(0.8);
+   	 	transform: scale(0.8);
+	}
+	.newsList .picBox{
+		display: none;
+	}
+	.newsList .textBox{
+		width: 100%;
+		padding: 0;
+		padding-bottom: 20px;
+	}
+	.newsList .textBox .num .tag, .newsDeBox .topBox .num .tag{
+		margin-right: 180px;
+		margin-bottom: 10px;
+	}
+	.newsList .textBox .num span:last-of-type, .newsDeBox .topBox .num span:last-of-type{
+		margin-right: 0;
+	}
+	.abModule2 .list .textBox .name{
+		font-size: 18px;
+	}
+	.abModule2 .list .textBox{
+		padding: 0 20px;
+	}
+	.abModule2 .list .textBox .pro{
+		font-size: 12px;
+		line-height: 1.5;
+	}
+	.abModule3 .box .mapbox{
+		height: 346px;
+	}
+	.abModule3 .box{
+		height: 300px;
+		margin-top: 30px;
+	}
+	.inModule{
+		padding-top: 30px;
+	}
+	.newsDeBox .topBox{
+		padding-bottom: 20px;
+	}
+	.newsDeBox{
+		padding: 26px 20px;
+	}
+	.nexPrevArt{
+		padding: 20px;
+	}
+	.nexPrevArt a{
+		width: 48%;
+	}
+	.footerForm .box .asideForm .formTit{
+		font-size: 16px;
+		margin-bottom: 10px;
+		padding-top: 0;
+	}
+	.footerForm{
+		height: auto;
+		padding: 20px 0;
+	}
+	.footerForm .box .closebtn{
+		top: -10px;
+		background-image: url(../img/closeW.png);
+	}
+	.footerForm .box .asideForm .nameInput, .footerForm .box .asideForm .telInput, .footerForm .box .asideForm .nameInput, .footerForm .box .asideForm .requireInput{
+		margin-right: 4%;
+		margin-bottom: 10px;
+		width: 48%;
+		height: 32px;
+		line-height: 32px;
+	}
+	.footerForm .box .asideForm .telInput{
+		width: 48%;
+		margin-right: 0;
+	}
+	.footerForm .box .asideForm .requireInput,.footerForm .box .asideForm #formSubBtn{
+		width: 100%;
+		margin-right: 0;
+		height: 32px;
+		line-height: 32px;
+	}
+	.rightAside #backTop{
+		bottom: 200px;
+    	width: 46px;
+    	height: 36px;
+    	background-size: 290px;
+   	 	background-position: -102px 1px;
+	}
+	.rightAside #backTop:hover{
+		background-position: -102px -38px;
+	}
+	#asideFormBtn{
+		bottom: 240px;
+	}
+	.rightAside .asideList{
+		bottom: 300px;
+	}
+	.rightAside .asideList .item{
+		width: 60px;
+		height: 56px;
+		padding-top: 0px;
+	}
+	.rightAside .asideList .item .icon{
+		-moz-transform: scale(0.6);
+    	-webkit-transform: scale(0.6);
+    	-o-transform: scale(0.6);
+    	-ms-transform: scale(0.6);
+    	transform: scale(0.6);
+	}
+	#asideFormBtn img{
+		width: 100px;	
+	}
+	.rightAside .asideList .item p{
+		font-size: 12px;
+		line-height: 1;
+	}
+	.rightAside .asideList .telitem .telBox .box{
+		width: 180px;
+    	height: 136px;
+	}
+	/*.rightAside .asideList .telitem:hover .telBox{
+		height: 136px;
+	}*/
+	.rightAside .asideList .telitem .telBox.active{
+		height: 136px;
+	}
+	.rightAside .asideList .telitem .telBox{
+		left: -180px;
+    	top: -6px;
+	}
+	.rightAside .asideList .telitem .telBox .box span{
+		font-size: 14px;
+		margin-bottom: 0;
+		padding-top: 8px;
+	}
+	.rightAside .asideList .telitem .telBox .box a{
+		font-size: 16px;		
+	}
+	.inBanner .title1.caseText{
+		font-size: 28px;
+	}
+	.inBanner .title1.newsText{
+		font-size: 36px;
+	}
+	.inBanner .title1.abText{
+		font-size:30px;
+	}
+	.indexModule3 .content .IndexCaseList li{
+		width: 50%;
+	}
+	.indexBanner{
+		height: auto;
+	}
+	.formSuc .sucBox{
+		width: 80%;
+		margin-left: 0;
+		left: 10%;
+		height: auto;
+		padding: 20px;
+	}
+	.formSuc .sucBox .name{
+		font-size: 16px;
+	}
+	.formSuc .sucBox .pro{
+		font-size: 14px;
+	}
+	.formSuc .sucBox .closeBtn{
+		font-size: 14px;
+		line-height: 34px;
+		height: 34px;
+		width: 120px;
+	}
+	.indexModule2 .view .arrow-left,.indexModule2 .view .arrow-right{
+		background-size: 80%;
+	}
+	.indexBanner .bannertxt1{
+		font-size: 24px;
+    	top: 45px;
+    	letter-spacing: 0;
+	}
+	.indexBanner .bannertxt2{
+		font-size: 18px;
+    	top: 84px;
+    	letter-spacing: 0;
+	}
+	.indexBanner .bannertxt3{
+		font-size: 14px;
+    	top: 118px;
+    	letter-spacing: 0;
+	}
+	.join{
+		margin-top: 0px;
+	}
+}
