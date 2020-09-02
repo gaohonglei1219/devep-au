@@ -421,29 +421,29 @@ $(function() {
  		data.interval = setInterval(updateTimer, settings.refreshInterval);
 
  		// initialize the element with the starting value
- 		render(value);
+ 		// render(value);
 
- 		function updateTimer() {
- 			value += increment;
- 			loopCount++;
+ 		// function updateTimer() {
+ 		// 	value += increment;
+ 		// 	loopCount++;
 
- 			render(value);
+ 		// 	render(value);
 
- 			if (typeof(settings.onUpdate) == 'function') {
- 				settings.onUpdate.call(self, value);
- 			}
+ 		// 	if (typeof(settings.onUpdate) == 'function') {
+ 		// 		settings.onUpdate.call(self, value);
+ 		// 	}
 
- 			if (loopCount >= loops) {
- 				// remove the interval
- 				$self.removeData('countTo');
- 				clearInterval(data.interval);
- 				value = settings.to;
+ 		// 	if (loopCount >= loops) {
+ 		// 		// remove the interval
+ 		// 		$self.removeData('countTo');
+ 		// 		clearInterval(data.interval);
+ 		// 		value = settings.to;
 
- 				if (typeof(settings.onComplete) == 'function') {
- 					settings.onComplete.call(self, value);
- 				}
- 			}
- 		}
+ 		// 		if (typeof(settings.onComplete) == 'function') {
+ 		// 			settings.onComplete.call(self, value);
+ 		// 		}
+ 		// 	}
+ 		// }
 
  		function render(value) {
  			var formattedValue = settings.formatter.call(self, value, settings);
