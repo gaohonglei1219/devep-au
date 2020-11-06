@@ -11,6 +11,7 @@ import com.devep.vo.ChatVo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,9 +32,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-@ServerEndpoint("/imserver/{userMail}")
 @Component
+@ServerEndpoint("/imserver/{userMail}")
 public class WebSocketServer {
     private static int ExpireTime = 60;
     static Log log= LogFactory.get(WebSocketServer.class);
@@ -49,7 +49,7 @@ public class WebSocketServer {
     @Autowired
     private ChatInfoServer chatInfoServer;
     @Autowired
-    private RedisUtil redisUtil;
+    private static RedisUtil redisUtil;
 
 
 
