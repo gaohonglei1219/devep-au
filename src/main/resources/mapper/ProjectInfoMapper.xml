@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.devep.mapper.ProjectInfoMapper">
+    <insert id="saveProjectInfo">
+        insert into project_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            pro_mail,
+            <if test="proDuration != null and proDuration != '' ">
+                pro_duration,
+            </if>
+            <if test="proRequireDocPath != null and proRequireDocPath != '' ">
+                pro_require_doc_path,
+            </if>
+            <if test="proProcessRate != null and proProcessRate != '' ">
+                pro_process_rate,
+            </if>
+            <if test="selectItems != null and selectItems != '' ">
+                select_items,
+            </if>
+            <if test="proName != null and proName != '' ">
+                pro_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{proMail},
+            <if test="proDuration != null and proDuration != '' ">
+                #{proDuration},
+            </if>
+            <if test="proRequireDocPath != null and proRequireDocPath != '' ">
+                #{proRequireDocPath},
+            </if>
+            <if test="proProcessRate != null and proProcessRate != '' ">
+                0,
+            </if>
+            <if test="selectItems != null and selectItems != '' ">
+                #{selectItems},
+            </if>
+            <if test="proName != null and proName != '' ">
+                #{proName}
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getProjectNumberByProMail" resultType="int">
+        select count(*) from project_info
+        <where>
+            pro_mail = #{proMail}
+        </where>
+    </select>
+
+    <select id="getProjectInfosByProMail" resultType="com.devep.vo.ProjectInfo">
+        select pro_id proId,pro_mail proMail,pro_duration proDuration,pro_require_doc_path proRequireDocPath,
+               pro_process_rate proProcessRate,select_items selectItems,pro_name proName
+         from project_info
+        <where>
+            pro_mail = #{proMail}
+        </where>
+    </select>
+</mapper>

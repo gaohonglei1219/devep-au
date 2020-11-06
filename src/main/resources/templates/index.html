@@ -17,19 +17,21 @@
     <title>Devep</title>
     <meta name="keywords" content="Devep">
     <meta name="description" content="Devep">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/swiper.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/responsive2.css">
     <link rel="stylesheet" href="./css/indexDev.css">
-       
+
 
 </head>
 <script>
-
     var wapurl = "http://localhost:8090/indexM"
-
-    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+    var selectItems = [];
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (
+        /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/
+            .test(navigator.userAgent))) {
         if (window.location.href.indexOf("?mobile") < 0) {
             try {
                 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -40,92 +42,150 @@
             } catch (e) { }
         }
     }
+
+    function requireClick(obj) {
+
+        if ($(obj).hasClass("tagSelected")) {
+            $(obj).removeClass("tagSelected");
+            selectItems.splice(jQuery.inArray(obj.id,selectItems),1);
+        } else {
+            $(obj).addClass("tagSelected");
+            selectItems.push(obj.id);
+            
+        }
+        console.log(selectItems);
+    }
+    // $(function () {
+    //     var selectItems = [];
+    // });
+    function submitRequestForm() {
+        var formData = new FormData();
+        //var test11 = $('#ff').serializeArray();
+        var fileobj = document.getElementById("projectFile").files[0];
+        //添加左列点击项
+        formData.append("selectItems",selectItems);
+        //添加表单数据
+        $.each($('#ff').serializeArray(), function (i, field) {
+            formData.append(field.name, field.value);
+        })
+        //上传用户需求
+        formData.append("file", fileobj);
+        $.ajax({
+            url: '/indexPro/projectSubmit',
+            type:"post",
+            dataType: "json",
+            async:false,
+            data:formData,
+            processData:false,
+            contentType:false,
+            traditional:true,
+            success: function(data){
+                $('#myModal').modal('hide');
+            }
+        });
+    }
 </script>
 
 <body>
     <div class="modal fade" id="myModal">
-        <div class="cover modal-dialog modal-dialog-centered" role="document">
-            <div class="content modal-content">
+        <div class="cover " role="document">
+            <div class="content">
+
                 <div class="left">
                     <h4>require kind</h4>
-                    <span>Excel</span>
-                    <span>Access</span>
-                    <span>IOS</span>
-                    <span>Andriod</span>
-                    <span>Facebook App</span>
-                    <span>HTML</span>
-                    <span>shopify</span>
-                    <span>C#</span>
+                    <span onclick="requireClick(this)" id="Excel">Excel</span>
+                    <span onclick="requireClick(this)" id="Access">Access</span>
+                    <span onclick="requireClick(this)" id="IOS">IOS</span>
+                    <span onclick="requireClick(this)" id="Andriod">Andriod</span>
+                    <span onclick="requireClick(this)" id="FacebookApp">Facebook App</span>
+                    <span onclick="requireClick(this)" id="HTML">HTML</span>
+                    <span onclick="requireClick(this)" id="shopify">shopify</span>
+                    <span onclick="requireClick(this)" id="C">C#</span>
                     <div id="textForIcon">this is samples for differnt span which be clicked</div>
                 </div>
                 <div class="right">
                     <div class="big-title">Looking to hire a Digital Marketing Expert?</div>
                     <div class="small-title">Send in your requirement and experience our elite customer service</div>
-                    <form enctype="multipart/form-data" method="post" action="/file-branch/projectInfo/upExcel"></form>
-                    <div class="input-inp">
-                        <div class="one">
-                            <div class="title">name*</div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="eg John"
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    <form id="ff" enctype="multipart/form-data" >
+                        <div class="input-inp">
+                            <div class="one">
+                                <div class="title">Email*</div>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="eg John" name="proMail"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="one">
-                            <div class="title">Email Address*</div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="eg John"
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="one">
+                                <div class="title">Password*</div>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="eg John" name="userPass"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+
+                            </div>
+                            <div class="one">
+                                <div class="title">Name</div>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="eg John" name="userName"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+                            </div>
+                            <div class="one">
+                                <div class="title">Contact Number</div>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="eg John" name="userContactNumber"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+                            </div>
+                            <div class="one">
+                                <div class="title">Website/Company</div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="eg John" name="userCompany"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+                            </div>
+                            <div class="one">
+                                <div class="title">project duration</div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="eg John" name="proDuration"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+                            </div>
+                            <div class="one">
+                                <div class="title">project name</div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="eg John" name="proName"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+                            </div>
+                            <div class="one">
+                                <div class="title"> Project Files</div>
+                                <input type="file" id="projectFile" name="projectFile" />
                             </div>
 
-                        </div>
-                        <div class="one">
-                            <div class="title">Contact Number</div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="eg John"
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            </div>
-                        </div>
-                        <div class="one">
-                            <div class="title">Project duration</div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="eg John"
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            </div>
-                        </div>
-                        <div class="two">
-                            <div class="title">Website/Company</div>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="eg John"
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            </div>
-                        </div>
-
-
-                        </form>
-                    </div>
-                    <div class="one">
-                        <div class="title"> Project Files</div>
-                        <input type="file" name="file" />
-                    </div>
+                    </form>
                 </div>
+
+
             </div>
-            <button class="hideNow">Hide Now</button>
         </div>
-    </div> 
+        <button onclick="submitRequestForm()" class="hideNow">Hire Now</button>
+    </div>
+    </div>
 
     <div id="ShowImage_Form" class="modal hide">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-header">
             </div>
-              <div class="modal-body">
-               <div id="img_show" >
-               
-               </div>
-           </div>
+            <div class="modal-body">
+                <div id="img_show">
 
-        </div>         
+                </div>
+            </div>
 
-   </div>
+        </div>
+
+    </div>
 
 
     <header class="zdHeader transiton3s">
@@ -317,9 +377,9 @@
                             <div class="ul-bd">
                                 <ul class="IndexCaseList clearfix">
                                     <li class="">
-                                        <a  class="box transiton3s" onclick="showPotfolioPic(this)">
+                                        <a class="box transiton3s" onclick="showPotfolioPic(this)">
                                             <div class="picBox">
-                                                <img  src="" data-src="http://zdocd.com/uploadfile/201905/eb8c72d9ff.jpg"
+                                                <img src="" data-src="http://zdocd.com/uploadfile/201905/eb8c72d9ff.jpg"
                                                     class="viewer objectCover transiton3s" />
                                             </div>
                                             <div class="textBox">
@@ -683,7 +743,7 @@
                 <p class="modulePro">8个环节，一步一个脚印</p>
             </div>
             <div class="animateBox animate-up">
- 
+
                 <div class="processBox">
                     <div class="line"></div>
                     <div class="item">
@@ -768,7 +828,7 @@
                         <a>------------</a>
                         <span>Email Us</span>
                         <a>123@123.com</a>
-                       
+
                     </div>
                 </div>
             </div>
@@ -840,8 +900,8 @@
     <script type="text/javascript" src="./js/swiper.min.js"></script>
     <script type="text/javascript" src="./js/jquery.SuperSlide.2.1.3.js"></script>
     <script type="text/javascript" src="./js/layer.js"></script>
-    <script type="text/javascript" src="./js/index.js"></script> 
-    <script src="./js/devepIndex.js" rel="stylesheet"></script> 
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script src="./js/devepIndex.js" rel="stylesheet"></script>
 </body>
 
 </html>

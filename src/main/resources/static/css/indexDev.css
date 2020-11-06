@@ -15,16 +15,16 @@
     bottom: 0;
     right: 0;
     margin: auto;
-    padding: 40px;
+    padding: 80px 40px 40px 20px;
     /* box-sizing: border-box; */
     font-size: 20px;
     height: 600px;
-    width: 60%;
+    width: 80%;
     border-radius: 10px;
 }
 .cover .content{
     display: flex;
-
+    overflow-y: scroll;
 }
 .cover .hideNow{
     align-self: center;
@@ -89,4 +89,9 @@
 .cover .right .small-title{
     font-size: 18px;
     text-align: center;
+}
+.tagSelected{
+    border:1px solid #3582FF !important;
+    background-color: #3582FF !important;
+    color: #fff !important;
 }

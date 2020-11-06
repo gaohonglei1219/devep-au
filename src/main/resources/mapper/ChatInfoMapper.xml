@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.devep.mapper.ChatInfoMapper">
+    <!--保存聊天记录-->
+    <insert id="saveChatInfo">
+        insert into chat_info
+        (pro_id,from,to,content,code,send_time)
+        values(#{proId},#{from},#{to},#{content},#{code},#{sendTime})
+    </insert>
+
+</mapper>

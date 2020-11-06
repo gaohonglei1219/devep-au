@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.devep.mapper.UserInfoMapper">
+    <select id="getUserMailCount" resultType="int">
+        select count(*) from user_info
+        <where>
+            user_mail = #{userMail}
+        </where>
+    </select>
+    <select id="getUserInfoByUserMail" resultType="com.devep.vo.UserInfo">
+        select user_mail userMail,user_pass userPass,
+               user_name userName,user_contact_number userContactNumber,
+               user_company userCompany from user_info
+        where user_mail = #{userMail}
+    </select>
+    <insert id="saveUserInfo">
+        insert into user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        user_mail,
+        <if test="userPass != null and userPass != '' ">
+            user_pass,
+        </if>
+        <if test="userName != null and userName != '' ">
+            user_name,
+        </if>
+        <if test="userContactNumber != null and userContactNumber != '' ">
+            user_contact_number,
+        </if>
+        <if test="userCompany != null and userCompany != '' ">
+            user_company
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{userMail},
+        <if test="userPass != null and userPass != '' ">
+            #{userPass},
+        </if>
+        <if test="userName != null and userName != '' ">
+            #{userName},
+        </if>
+        <if test="userContactNumber != null and userContactNumber != '' ">
+            #{userContactNumber},
+        </if>
+        <if test="userCompany != null and userCompany != '' ">
+            #{userCompany}
+        </if>
+        </trim>
+    </insert>
+</mapper>

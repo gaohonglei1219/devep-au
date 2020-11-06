@@ -6,6 +6,10 @@ server:
   tomcat:
     uri-encoding: UTF-8
 spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
   servlet:
     multipart:
       enabled: true
@@ -25,7 +29,8 @@ spring:
       validation-query: SELECT 1
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://94.237.66.73:3306/devep-au?characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://localhost:3306/devepau?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+#    url: jdbc:mysql://94.237.66.73:3306/devep-au?characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
     username: root
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -38,3 +43,4 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+

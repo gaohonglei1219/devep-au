@@ -26,11 +26,12 @@ public class WebController {
         return mv;
     }
 
-//    @RequestMapping("/{htmlName}")
-//    public ModelAndView hello(@PathVariable String htmlName, HttpSession session){
-//
-//
-//        ModelAndView mv = new ModelAndView(htmlName+".html");
-//        return mv;
-//    }
+    @RequestMapping("/project")
+    @ResponseBody
+    public ModelAndView hello2(HttpSession session){
+        ModelAndView mv = new ModelAndView("projectProcess.html");
+        return mv;
+    }
+
+
 }
